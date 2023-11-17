@@ -1,6 +1,7 @@
 // Importar as funções necessárias do Firebase
-import { app } from "./config-firebase.js";
+import { app,db } from "./config-firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+import { addDoc, collection} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
 let btnAvancar = document.querySelector("#btnAvancar");
 let confir = document.querySelector(".confirm");
@@ -109,6 +110,8 @@ btnAvancar.addEventListener("click", async (evento) => {
     
     store()// Armazenando no Firestore Storage
 
+    
+
   }
 });
 
@@ -139,7 +142,8 @@ function store(){
                     if (confirmEnvio) {
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
-                      window.location.href = "../index.html";
+                      cadastrarDados()
+                      //window.location.href = "../index.html";
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -185,4 +189,37 @@ function store(){
         console.error("Erro ao fazer upload da imagem: ", error);
         alert("Não foi possível fazer o upload da imagem, insira uma imagem válida")
     }
+}
+
+// CADASTRANDO TODOS OS DADOS NO FIRESTORE
+async function cadastrarDados(){
+  //Pegando os dados do localStorage para armazenar no banco
+  let resultado = JSON.parse(localStorage.getItem("dadosEquipe"))
+
+  resultado.imgDesligar = JSON.parse(localStorage.getItem("desligar"))
+  resultado.imgBloquear = JSON.parse(localStorage.getItem("bloquear"))
+  resultado.imgSinalizar = JSON.parse(localStorage.getItem("sinalizar"))
+  resultado.imgAterrar = JSON.parse(localStorage.getItem("aterrar"))
+  resultado.imgTestar = JSON.parse(localStorage.getItem("testar"))
+  resultado.imgProteger = JSON.parse(localStorage.getItem("proteger"))
+  try {
+    console.log(resultado)
+      await addDoc(collection(db, "registrar"), resultado);
+      //console.log("Document criado com ID: ", docRef.id);
+      alert("Dados cadastrados com sucesso");
+      
+      localStorage.removeItem("dadosEquipe")
+      localStorage.removeItem("desligar")
+      localStorage.removeItem("bloquear")
+      localStorage.removeItem("sinalizar")
+      localStorage.removeItem("aterrar")
+      localStorage.removeItem("testar")
+      localStorage.removeItem("proteger")
+
+
+  } catch (e) {
+      console.error("Erro ao criar o documento: ", e);
+  }
+  
+  //getDados() // chamando função para atualizar lista de dados ao criar novo contato
 }
