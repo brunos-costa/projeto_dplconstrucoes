@@ -155,10 +155,8 @@ function store() {
           localStorage.setItem(nomeImagem, JSON.stringify(dadosImagem))// salvando o link da imagem no localstorage
 
           // Verificar se é a sexta página (proteger6.html)
-          console.log("pagina 6")
-          console.log("A página é a 6: " + window.location.href.includes("proteger6.html"))
-          if (window.location.href.includes("proteger6.html")) {
-            console.log("pagina 6")
+
+          if (window.location.href.includes("proteger6")) {
             try {
 
               const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
@@ -166,7 +164,7 @@ function store() {
                 // Redirecionar para a página inicial após o envio bem-sucedido
                 cadastrarDados()
                 alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
-                window.location.href = "../index.html"
+                window.location.href = "../"
               }
             } catch (error) {
               console.error("Erro ao enviar imagem para o Firebase:", error);
