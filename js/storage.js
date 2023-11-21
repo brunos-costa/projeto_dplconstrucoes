@@ -163,8 +163,6 @@ function store() {
               if (confirmEnvio) {
                 // Redirecionar para a página inicial após o envio bem-sucedido
                 cadastrarDados()
-                alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
-                window.location.href = "../"
               }
             } catch (error) {
               console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -228,7 +226,9 @@ async function cadastrarDados() {
     console.log(resultado)
     await addDoc(collection(db, "registrar"), resultado);
     //console.log("Document criado com ID: ", docRef.id);
-    alert("Dados cadastrados com sucesso");
+
+    alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
+    window.location.href = "../"
 
     localStorage.removeItem("dadosEquipe")
     localStorage.removeItem("apr")
