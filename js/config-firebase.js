@@ -4,21 +4,6 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-<<<<<<< HEAD
-
-=======
-/*
->>>>>>> 43cc1a1161af4affd32441b3e38a41f3e279fc4a
-const firebaseConfig = {
-    apiKey: "AIzaSyBCnm-2DJ5T2KzqENZneCaWK8NASkjDUzg",
-    authDomain: "imagem-database.firebaseapp.com",
-    projectId: "imagem-database",
-    storageBucket: "imagem-database.appspot.com",
-    messagingSenderId: "96613531537",
-    appId: "1:96613531537:web:fec3c90379e87e36136430"
-};
-*/
 
 // CONFIGURAÇÃO FIREBASE BRUNO
 const firebaseConfig = {
