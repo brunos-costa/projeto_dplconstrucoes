@@ -92,27 +92,24 @@ function displayImages() {
 }
 
 // Validar os campos e inserir a imagem no Firebase Storage
-btnAvancar.addEventListener("click", async (evento) => {
-  evento.preventDefault();
+// btnAvancar.addEventListener("click", async (evento) => {
+//   evento.preventDefault();
 
-  if (!confir.checked) {
-    alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
-  } else if (images.length === 0) {
-    alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
-  } else {
-    // Armazenar temporariamente as imagens
-    temporaryImageStorage.push({ temporaryImageName, images });
+//   if (!confir.checked) {
+//     alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
+//   } else if (images.length === 0) {
+//     alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
+//   } else {
+//     // Armazenar temporariamente as imagens
+//     temporaryImageStorage.push({ temporaryImageName, images });
 
-    store()// Armazenando no Firestore Storage
-
-
-
-  }
-});
+//     store()// Armazenando no Firestore Storage
 
 
 
-/*
+//   }
+// });
+
 btnAvancar.addEventListener("click", async (evento) => {
   evento.preventDefault();
 
@@ -124,7 +121,6 @@ btnAvancar.addEventListener("click", async (evento) => {
     if (images.length === 0) {
       alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
     } else {
-      temporaryImageStorage.push({ temporaryImageName, images });
       store(); // Armazenar no Firestore Storage
     }
   } else {
@@ -134,13 +130,12 @@ btnAvancar.addEventListener("click", async (evento) => {
     } else if (images.length === 0) {
       alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
     } else {
-      temporaryImageStorage.push({ temporaryImageName, images });
       store(); // Armazenar no Firestore Storage
     }
   }
 });
 
-*/
+
 function store() {
   loader.classList.replace("d-none", "d-block")
   try {
