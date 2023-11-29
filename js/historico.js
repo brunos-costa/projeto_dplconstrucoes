@@ -1,210 +1,18 @@
-// let historicoContainer = document.querySelector("#historico-container")
-// function salvarRegistro() {
-//  //vazio
-// }
-
-// function atualizarData() {
-//   let dataAtual= new Date();
-//   let dataFormatada = dataAtual.toLocaleDateString();
-//   elementoData.textContent = dataFormatada;
-
-//   atualizarData();
-//   setInterval(atualizarData,1000);
-
-//   let tabelaVetor = JSON.parse(localStorage.getItem("relatorio"))
-
-//   if(tabelaVetor != null) {
-//     let corpo = document.getElementById("")
-//   }
-// }
-
-// function exibirRegistros() {
-//   const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
-//   if (registros != null) {
-//     relatorio = registros
-//   }
-//   else {
-//     // relatorio = []
-//   }
-//   // const dataHora = {
-//   //   data: new Date().toLocaleDateString(),
-//   //   hora: new Date().toLocaleTimeString(),
-//   // };
-
-//   relatorio.forEach((registro, index) => {
-//     console.log(registro)
-//     let div = document.createElement("div")
-//     div.classList.add("d-flex", "align-content-center", "justify-content-center",)
-//     div.innerHTML = ` 
-//     <div class="col-10 col-lg-6 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
-//       <div class="px-3">
-//         <table class="table px-4 ">
-//           <tbody>
-//             <tr class="">
-//               <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
-//               <td class="text-end bg-body-secondary rounded-end" colspan="2">${index < 9 ? '00' : ''}${index > 10 ? '0' : ''}${index > 99 ? '' : ''}${index + 1}</td>
-//             </tr>
-
-//             <tr class="">
-//               <th scope="row">Líder:</th>
-//               <td class="text-end" colspan="2">${registro.lider}</td>
-//             </tr>
-
-//             <tr class="">
-//               <th scope="row">Matrícula Líder:</th>
-//               <td class="text-end" colspan="2">${registro.matriculaLider}</td>
-//             </tr>
-//             <tr class="">
-//               <th scope="row">Matrículas Equipe:</th>
-//               <td class="text-end" colspan="2">${registro.matriculas}</td>
-//             </tr>
-
-//             <tr>
-//               <th scope="row">Equipe:</th>
-//               <td class="text-end" colspan="2">${registro.equipe}</td>
-//             </tr>
-
-//             <tr>
-//               <th scope="row" colspan="1">Placa:</th>
-//               <td colspan=23" class="text-end">${registro.placa}</td>
-//             </tr>
-
-//             <tr>
-//               <th scope="row">Endereço:</th>
-//               <td colspan="2" class="text-end">${registro.local}</td>
-//             </tr>
-
-//             <tr class="">
-//               <td colspan="2" class="bg-body-tertiary">${registro.data}</td>
-//               <td colspan="2" class="bg-body-tertiary text-end">${registro.hora}</td>
-//             </tr>
-
-//           </tbody>
-//         </table>
-//       </div>
-//     </div>
-//   `
-//     historicoContainer.appendChild(div)
-//   });
-
-
-// const btnEnviar = document.getElementById('btnEnviar');
-// if (btnEnviar) {
-//   btnEnviar.addEventListener('click', () => {
-//     salvarRegistro();
-//     window.location.href = 'desligar1.html';
-//   });
-// }
-
-// if (window.location.pathname.includes('historico.html')) {
-//   exibirRegistros();
-// }
-// exibirRegistros()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { db } from "./config-firebase.js";
-// import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"; // Adicione esta linha
-
-// document.addEventListener("DOMContentLoaded", async () => {
-//     try {
-//         // Obtenha os documentos da coleção "registrar"
-//         const querySnapshot = await getDocs(collection(db, "registrar"));
-
-//         // Exiba as informações na página
-//         const informacoesDiv = document.getElementById("informacoes");
-//         informacoesDiv.innerHTML = ""; // Limpe o conteúdo anterior
-
-//         querySnapshot.forEach((doc) => {
-//             const data = doc.data();
-//             const infoCard = criarCardInformacao(data);
-//             informacoesDiv.appendChild(infoCard);
-//         });                     
-//     } catch (error) {
-//         console.error("Erro ao obter informações:", error);
-//     }
-// });
-
-// function criarCardInformacao(data) {
-//     const card = document.createElement("div");
-//     card.classList.add("card", "mb-3");
-
-//     const cardBody = document.createElement("div");
-//     cardBody.classList.add("card-body");
-
-//     const cardTitle = document.createElement("h5");
-//     cardTitle.classList.add("card-title");
-//     cardTitle.textContent = "Informações do Formulário";
-
-//     const cardContent = document.createElement("div");
-//     cardContent.innerHTML = `
-//         <p><strong>Líder:</strong> ${data.lider}</p>
-//         <p><strong>Matrícula do Líder:</strong> ${data.matriculaLider}</p>
-//         <p><strong>Placa:</strong> ${data.placa}</p>
-//         <p><strong>Equipe:</strong> ${data.equipe}</p>
-//         <p><strong>Matrículas:</strong> ${data.matriculas.join(", ")}</p>
-//         <p><strong>Ordem de Serviço:</strong> ${data.ordemServico}</p>
-//         <p><strong>Localização:</strong> ${data.localizacao}</p>
-//         <p><strong>Timestamp:</strong> ${data.timestamp}</p>
-//     `;
-
-//     cardBody.appendChild(cardTitle);
-//     cardBody.appendChild(cardContent);
-//     card.appendChild(cardBody);
-
-//     return card;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { db } from "./config-firebase.js";
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+import { orderBy, getDocs, collection, query } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         // Obtenha os documentos da coleção "registrar"
-        const querySnapshot = await getDocs(collection(db, "registrar"));
+        const querySnapshot = await getDocs(collection(db, "registrar"), orderBy("timestamp", "desc"));
 
         // Exiba as informações na página
         const informacoesDiv = document.getElementById("informacoes");
         informacoesDiv.innerHTML = ""; // Limpe o conteúdo anterior
 
-        querySnapshot.forEach((doc, index) => {
+        querySnapshot.forEach((doc) => {
             const data = doc.data();
             const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
             informacoesDiv.innerHTML += infoCardHTML;
@@ -215,26 +23,44 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function criarCardInformacaoHTML(data, ordemServico, timestamp) {
+  let imagensHTML = "";
+
+  const categoriasImagens = ["apr", "aterrar", "bloquear", "desligar", "proteger", "sinalizar", "testar"];
+
+  categoriasImagens.forEach(categoria => {
+      if (data[categoria]) {
+          imagensHTML += `<hr class="border-4 border-success"> <h5 class="fw-bolder text-decoration-underline">${categoria.toUpperCase()}</h5>`;
+          data[categoria].forEach((imagem, index) => {
+              imagensHTML += `
+                  <div>
+                      <p class="fw-bolder fonte">Imagem ${index + 1}:</p>
+                      <img src="${imagem.url}" alt="Imagem ${index + 1}" style="max-width: 200px; max-height: 200px; margin-bottom: 10px;">
+                  </div>
+              `;
+          });
+      }
+  });
+
     return `
-        <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
+        <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center mb-5">
             <div class="px-3">
                 <table class="table px-4">
                     <tbody>
                         <tr>
-                            <th scope="row" class="bg-body-secondary rounded-start" colspan="3">Ordem de Serviço:</th>
-                            <td class="text-end bg-body-secondary rounded-end" colspan="5">${ordemServico}</td>
+                            <th scope="row" class="bg-success rounded-start text-white" colspan="5">Ordem de Serviço:</th>
+                            <td class="text-end bg-success rounded-end text-white fw-bolder" colspan="5">${ordemServico}</td>
                         </tr>
                         <tr>
                             <th scope="row">Líder:</th>
-                            <td class="text-end" colspan="5">${data.lider}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.lider}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="5">Matrícula Líder:</th>
-                            <td class="text-end" colspan="5">${data.matriculaLider}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.matriculaLider}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="4">Matrículas Equipe:</th>
-                            <td class="text-end" colspan="4">
+                            <td class="text-end bg-body-tertiary" colspan="5">
                                 <ul style="list-style: none; padding: 0; margin: 0;">
                                     ${data.matriculas.map((matricula, index) => `<li>M${index + 1}: ${matricula}</li>`).join("")}
                                 </ul>
@@ -242,15 +68,15 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                         </tr>
                         <tr>
                             <th scope="row">Equipe:</th>
-                            <td class="text-end" colspan="5">${data.equipe}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.equipe}</td>
                         </tr>
                         <tr>
                             <th scope="row">Placa:</th>
-                            <td class="text-end" colspan="5">${data.placa}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.placa}</td>
                         </tr>
                         <tr>
                             <th scope="row">Endereço:</th>
-                            <td class="text-end" colspan="5">${data.localizacao}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.localizacao}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="4">Data e Hora:</th>
@@ -258,7 +84,18 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+                
+                <div class="row">
+                  <div class="col">
+                      <h5 class="text-center">Imagens do Registro:</h5>
+                      <div class="d-flex justify-content-center">
+                          <div class="text-center flex-row img-thumbnail">
+                              ${imagensHTML}
+                          </div>
+                      </div>
+                  </div>
+                </div>
+        
         </div>
     `;
 }
@@ -271,7 +108,12 @@ function formatarDataHora(timestamp) {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const querySnapshot = await getDocs(collection(db, "registrar"), query => orderBy(query, 'timestamp', 'desc'));
+        const querySnapshot = await getDocs(
+            query(
+                collection(db, "registrar"),
+                orderBy("timestamp", "desc") // Ordenando pelo timestamp em ordem descendente
+            )
+        );
 
         const informacoesDiv = document.getElementById("informacoes");
         informacoesDiv.innerHTML = "";
@@ -285,3 +127,125 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Erro ao obter informações:", error);
     }
 });
+
+
+//========================== PESQUISA
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    // ... (seu código existente)
+  
+    // Referências aos elementos HTML
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const informacoesDiv = document.getElementById("informacoes");
+  
+    // Função para realizar a pesquisa
+    const realizarPesquisa = async (termo) => {
+      informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+  
+      try {
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const ordemServico = data.ordemServico.toLowerCase(); // Convertendo para minúsculas para pesquisa case-insensitive
+  
+          if (ordemServico.includes(termo.toLowerCase())) {
+            const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+            informacoesDiv.innerHTML += infoCardHTML;
+          }
+        });
+  
+        if (informacoesDiv.innerHTML === "") {
+          informacoesDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+        }
+      } catch (error) {
+        console.error("Erro ao obter informações:", error);
+      }
+    };
+  
+    // Manipulador de evento para o formulário de pesquisa
+    searchForm.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Evitar o comportamento padrão de submit
+  
+      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
+  
+      if (termoPesquisa !== "") {
+        realizarPesquisa(termoPesquisa); // Executar a função de pesquisa
+      } else {
+        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+        // Se o campo de pesquisa estiver vazio, exibir todos os resultados novamente
+  
+        // Chame sua função existente para carregar todos os resultados novamente
+        // Seu código original para exibir todos os resultados após o carregamento do DOM
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+          informacoesDiv.innerHTML += infoCardHTML;
+        });
+      }
+    });
+  
+    // Manipulador de evento para o campo de entrada de pesquisa (detecta a exclusão de conteúdo)
+    searchInput.addEventListener("input", async () => {
+      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
+  
+      if (termoPesquisa === "") {
+        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+  
+        // Chame sua função existente para carregar todos os resultados novamente
+        // Seu código original para exibir todos os resultados após o carregamento do DOM
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+          informacoesDiv.innerHTML += infoCardHTML;
+        });
+      }
+    });
+  });
+  
+
+
+//   ---------------------   VOLTA AO TOPO
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const btnVoltarAoTopo = document.getElementById("voltarAoTopoBtn");
+  
+    // Exibir o botão quando a página for rolada para baixo
+    window.addEventListener("scroll", function() {
+      if (window.pageYOffset > 1200) {
+        btnVoltarAoTopo.classList.add("show");
+      } else {
+        btnVoltarAoTopo.classList.remove("show");
+      }
+    });
+  
+    // Função para rolar suavemente até o topo da página ao clicar no botão
+    btnVoltarAoTopo.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "auto"
+      });
+    });
+  });
