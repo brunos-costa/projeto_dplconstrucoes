@@ -258,8 +258,10 @@ async function cadastrarDados() {
 
     localStorage.removeItem("dadosEquipe")
 
+    alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
+    window.location.href = "../"
 
-  } catch (e) {
+   } catch (e) {
     console.error("Erro ao criar o documento: ", e);
   }
 

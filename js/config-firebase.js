@@ -4,7 +4,6 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 
 const firebaseConfig = {
     apiKey: "AIzaSyBCnm-2DJ5T2KzqENZneCaWK8NASkjDUzg",
@@ -14,6 +13,8 @@ const firebaseConfig = {
     messagingSenderId: "96613531537",
     appId: "1:96613531537:web:fec3c90379e87e36136430"
 };
+
+
 
 
 
